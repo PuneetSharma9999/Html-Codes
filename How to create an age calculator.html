@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age Calculator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    margin: 0;
+    padding: 20px;
+    color: #fff;
+  }
+
+  .container {
+    max-width: 500px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #444;
+    color: #fff;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to right, #ff5733, #27ae60, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  button:hover {
+    opacity: 0.9;
+  }
+
+  #result {
+    margin-top: 20px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Age Calculator (IST)</h1>
+  <input type="date" id="dob">
+  <button onclick="calculateAge()">Calculate Age</button>
+  <div id="result"></div>
+</div>
+
+<script>
+  function calculateAge() {
+    var dob = new Date(document.getElementById('dob').value);
+    var today = new Date();
+
+    // Adjusting for Indian Standard Time (IST) - GMT+5:30
+    today.setHours(today.getHours() + 5);
+    today.setMinutes(today.getMinutes() + 30);
+
+    var age = today.getFullYear() - dob.getFullYear();
+    var month = today.getMonth() - dob.getMonth();
+    var day = today.getDate() - dob.getDate();
+    var hour = today.getHours() - dob.getHours();
+    var minute = today.getMinutes() - dob.getMinutes();
+
+    if (month < 0 || (month === 0 && day < 0)) {
+      age--;
+      month += 12;
+    }
+
+    if (day < 0) {
+      month--;
+      day += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+    }
+
+    if (hour < 0) {
+      day--;
+      hour += 24;
+    }
+
+    if (minute < 0) {
+      hour--;
+      minute += 60;
+    }
+
+    document.getElementById('result').innerHTML = `
+      <p>Your age is: ${age} years, ${month} months, ${day} days, ${hour} hours, and ${minute} minutes (IST).</p>
+    `;
+  }
+</script>
+
+</body>
+</html>
