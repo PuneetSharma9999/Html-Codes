@@ -1,0 +1,111 @@
+<html>
+<head>
+    <title>Website Layout</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .header {
+            background-color: green;
+            padding: 15px;
+            text-align: center;
+        }
+        .nav_menu {
+            overflow: hidden;
+            background-color: #333;
+        }
+        .nav_menu a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .nav_menu a:hover {
+            background-color: white;
+            color: green;
+        }
+        .columnA,
+        .columnB,
+        .columnC {
+            float: left;
+            width: 31%;
+            padding: 15px;
+            text-align: justify;
+        }
+        h2 {
+            color: green;
+            text-align: center;
+        }
+        @media screen and (max-width:600px) {
+            .columnA,
+            .columnB,
+            .columnC {
+                width: 100%;
+            }
+        }
+        @media screen and (max-width:400px) {
+            .columnA,
+            .columnB,
+            .columnC {
+                width: 100%;
+            }
+        }
+        .footer {
+            background-color: green;
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2 style="color:white;font-size:200%"> JK BUSINESS SCHOOL</h2>
+    </div>
+
+    <div class="nav_menu">
+        <a href="#">BCA</a>
+        <a href="#">BBA</a>
+        <a href="#">PGDM</a>
+    </div>
+ 
+    <div class="row">
+ 
+        <div class="BCA">
+            <h2>BCA</h2>
+            <p>
+                The BCA course is a full-time three years (six semesters) Bachelor’s Degree in Computer Applications,
+                affiliated to Gurugram University, Gurugram.
+            </p>
+        </div>
+ 
+        <div class="BBA">
+            <h2>BBA</h2>
+            <p>
+                Envisaged to provide you with interdisciplinary learnings,
+                multifaceted skills and promote business decision making to ensure 
+                your grooming to pursue management and entrepreneurial ambitions.
+            </p>
+        </div>
+ 
+        <div class="PGDM">
+            <h2>PGDM</h2>
+            <p>
+                Curated with industry experts which goes beyond the run-of-the-mill managerial knowledge and 
+                equips future managers with multidisciplinary specializations along 
+                with business mindset and focused strategic development.
+            </p>
+        </div>
+
+    </div>
+
+    <center style="font-size:400%;"></center>
+    <div class="footer">
+        <a href="#">About</a><br>
+        <a href="#">Career</a><br>
+        <a href="#">Contact Us</a>
+    </div>
+
+</body>
+</html>
